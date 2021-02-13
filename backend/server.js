@@ -50,23 +50,16 @@ app.get("/:movie", (req, res) => {
 			// })
 			// res.end();
 
-			console.log("apicall henüz çağrılmadı")
-
 			const obj = await apiCall(movie);
 
-			console.log("apicall yukarıda çağrıldı")
+			console.log("web scrapping yapıldı...");
 
 			res.send(obj);
 			res.end();
 
-			// res.send({
-			// 	msg : 'test'
-			// })
-			// res.end();
 
 		}else
 		{
-			console.log("başarılı!!!");
 			res.send(data);
 			res.end();
 		}

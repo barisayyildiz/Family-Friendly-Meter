@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 import Input from './components/Input';
-import User from './components/User';
+import Movie from './components/Movie';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 				</Route>
 
 				<Route path="/:id">
-					<User></User>
+					<Movie></Movie>
 				</Route>
 			
 			</Switch>

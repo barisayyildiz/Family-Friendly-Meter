@@ -15,8 +15,6 @@ function promiseApiCall(name)
 {
 	return new Promise( async (resolve, reject) => {
 
-		console.log("qweqweqw");
-
 		let url = `http://www.omdbapi.com/?apikey=${'976e02f'}&t=${name}&plot=short`;
 
 		try
@@ -25,8 +23,6 @@ function promiseApiCall(name)
 			let data = await res.json();
 
 			const {imdbID} = data;
-
-			console.log("dfgdfgdfg");
 
 
 			try

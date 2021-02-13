@@ -58,10 +58,10 @@ function Input() {
 
 	return (
 	
-		<div>
+		<div style={{marginTop : '5vh'}}>
 
-			<input placeholder="Enter username" onChange={(e) => setUsername(e.target.value)}></input>
-			<button onClick={clickHandler}>Search</button>
+			<input placeholder="Search for a movie" onChange={(e) => setUsername(e.target.value)} style={{fontSize : '2rem'}}></input>
+			<button onClick={clickHandler} style={{fontSize : '2rem'}}>Search</button>
 	
 			
 		</div>
