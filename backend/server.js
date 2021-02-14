@@ -54,6 +54,10 @@ app.get("/:movie", (req, res) => {
 
 			console.log("web scrapping yapıldı...");
 
+			const newMovie = new Model(obj);
+		
+			await newMovie.save();
+
 			res.send(obj);
 			res.end();
 
@@ -102,28 +106,3 @@ app.post("/add", (req, res) => {
 
 
 })
-
-// app.get("/:name", (req, res) => {
-
-// 	// console.log("queries : ", req.query);
-
-// 	Model.findOne({username : req.params.name}, (err, data) => {
-
-// 		console.log(data);
-
-// 		// if(data == null)
-// 		// {
-// 		// 	res.json({
-// 		// 		code : 'No such user exists'
-// 		// 	})
-// 		// 	res.end();
-// 		// }
-		
-// 		res.send(data)
-
-// 	})
-
-
-// })
-
-

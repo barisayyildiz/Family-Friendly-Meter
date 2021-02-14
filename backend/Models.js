@@ -36,10 +36,15 @@ const MovieSchema = new mongoose.Schema({
 	},
 
 	nudity : SectionSchema,
+	nudity_notes : [String],
 	violence : SectionSchema,
+	violence_notes : [String],
 	profanity : SectionSchema,
+	profanity_notes : [String],
 	drugs : SectionSchema,
-	intense : SectionSchema
+	drugs_notes : [String],
+	intense : SectionSchema,
+	intense_notes : [String]
 
 })
 

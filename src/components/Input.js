@@ -8,49 +8,25 @@ import {
 function Input() {
 
 	const [loaded, setLoaded] = useState(false);
-	const [user, setUser] = useState({});
-	const [username, setUsername] = useState('');
+	const [movie, setMovie] = useState({});
 
-	useEffect(() => {
-
-		// fetch("http://localhost:5000/?name=barisayyildiz")
-		// .then(res => res.json)
-		// .then(data => {
-
-		// 	const {username, password} = data;
-			
-		// 	console.log(data);
-
-		// 	setUser({username, password})
-		// 	setLoaded(true);
-
-		// })
-
-		fetch("http://localhost:5000/?name=barisayyildiz")
-		.then(res => res.json())
-		.then(data => {
-
-			const {username, password} = data;
-
-			// console.log({username, password});
-
-			setLoaded(true);
-			setUser({username, password});
-
-		})
-
-	}, [])
 
 	const clickHandler = () => {
 
-		let query = (username).split(" ").join("+")
+		let arr = (movie).split(" ");
+
+		arr = arr.map(s => s.charAt(0).toUpperCase() + s.slice(1));
+
+		let query = arr.join("+");
+
+
+		// let query = (movie).split(" ").join("+")
+
+		console.log(query);
 
 		// window.location = `/?name=${username}`;
 
-		console.log(window);
 		window.location = `/${query}`;
-
-		
 
 	}
 
@@ -60,7 +36,7 @@ function Input() {
 	
 		<div style={{marginTop : '5vh'}}>
 
-			<input placeholder="Search for a movie" onChange={(e) => setUsername(e.target.value)} style={{fontSize : '2rem'}}></input>
+			<input placeholder="Search for a movie" onChange={(e) => setMovie(e.target.value)} style={{fontSize : '2rem'}}></input>
 			<button onClick={clickHandler} style={{fontSize : '2rem'}}>Search</button>
 	
 			

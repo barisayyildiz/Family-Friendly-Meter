@@ -22,12 +22,16 @@ function promiseApiCall(name)
 			let res = await fetch(url);
 			let data = await res.json();
 
-			const {imdbID} = data;
+			const {imdbID, Year, Poster} = data;
+
+			console.log(data.Poster);
 
 
 			try
 			{
 				obj = await promiseWebScrapping(imdbID);
+
+				obj = {...obj, name, image : Poster};
 
 				resolve(obj);
 
@@ -60,7 +64,7 @@ function promiseWebScrapping(imdbID)
 			let arr = pagedom.window.document.querySelectorAll(".advisory-severity-vote__vote-button-container");
 
 
-			const obj = {
+			const guide = {
 				"nudity" : {
 
 					"none" : parseInt( arr[0].children[0].lastElementChild.innerHTML ),
@@ -104,9 +108,38 @@ function promiseWebScrapping(imdbID)
 				
 			}
 
-			// console.log(obj);
+			let warnings = {
+				"nudity_notes" : [],
+				"violence_notes" : [],
+				"profanity_notes" : [],
+				"drugs_notes" : [],
+				"intense_notes" : []
+			}
+
+			ul = pagedom.window.document.querySelectorAll("ul.ipl-zebra-list")
+			
+			nudity_notes = ul[0].querySelectorAll("li.ipl-zebra-list__item");
+			violence_notes = ul[1].querySelectorAll("li.ipl-zebra-list__item");
+			profanity_notes = ul[2].querySelectorAll("li.ipl-zebra-list__item");
+			drugs_notes = ul[3].querySelectorAll("li.ipl-zebra-list__item");
+			intense_notes = ul[4].querySelectorAll("li.ipl-zebra-list__item");
+
+			console.log("nudity_notes : ", (nudity_notes[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit",""));
+			console.log("nudity_notes : ", nudity_notes[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, ""));
+
+			nudity_notes.forEach(i => warnings.nudity_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
+			violence_notes.forEach(i => warnings.violence_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
+			profanity_notes.forEach(i => warnings.profanity_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
+			drugs_notes.forEach(i => warnings.drugs_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
+			intense_notes.forEach(i => warnings.intense_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
+
+
+
+			let obj = {...guide, ...warnings}
+
 
 			resolve(obj);
+
 
 		}catch(e)
 		{
