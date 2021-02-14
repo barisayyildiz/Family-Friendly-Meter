@@ -59,7 +59,7 @@ function UserInput() {
 		fontSize : '1.3rem',
 		fontFamily: 'Work Sans'}}>
 
-			<h1>Cringe-o-Meter</h1>
+			<h1>Family-Friendly-Meter</h1>
 
 			{/* <input placeholder="Search for a movie" onChange={(e) => setMovie(e.target.value)} style={{fontSize : '2rem'}}></input>
 			<button onClick={clickHandler} style={{fontSize : '2rem'}}>Search</button> */}
