@@ -2,20 +2,13 @@ const got = require("got");
 const jsdom = require("jsdom");
 const fetch = require("node-fetch");
 
-// let fightClub = 'tt0137523';
-// let wonderWoman = 'tt0451279';
-// let imdbId = wonderWoman;
-
-
-// let name = 'Fight+Club';
-// let apiKey = '976e02f';
-
+require('dotenv').config();
 
 function promiseApiCall(name)
 {
 	return new Promise( async (resolve, reject) => {
 
-		let url = `http://www.omdbapi.com/?apikey=${'976e02f'}&t=${name}&plot=short`;
+		let url = `http://www.omdbapi.com/?apikey=${process.env.KEY}&t=${name}&plot=short`;
 
 		try
 		{
@@ -24,7 +17,7 @@ function promiseApiCall(name)
 
 			const {imdbID, Year, Poster} = data;
 
-			console.log(data.Poster);
+			console.log("Data : ", data);
 
 
 			try
@@ -116,17 +109,15 @@ function promiseWebScrapping(imdbID)
 				"intense_notes" : []
 			}
 
-			ul = pagedom.window.document.querySelectorAll("ul.ipl-zebra-list")
+			ul = pagedom.window.document.querySelectorAll("ul.ipl-zebra-list");
 			
 			nudity_notes = ul[0].querySelectorAll("li.ipl-zebra-list__item");
 			violence_notes = ul[1].querySelectorAll("li.ipl-zebra-list__item");
 			profanity_notes = ul[2].querySelectorAll("li.ipl-zebra-list__item");
 			drugs_notes = ul[3].querySelectorAll("li.ipl-zebra-list__item");
 			intense_notes = ul[4].querySelectorAll("li.ipl-zebra-list__item");
-
-			console.log("nudity_notes : ", (nudity_notes[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit",""));
-			console.log("nudity_notes : ", nudity_notes[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, ""));
-
+			
+			// clearing textContent
 			nudity_notes.forEach(i => warnings.nudity_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
 			violence_notes.forEach(i => warnings.violence_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))
 			profanity_notes.forEach(i => warnings.profanity_notes.push((i.textContent.replace(/[\n\r]+|[\s]{2,}/g, "")).replace("Edit","")))

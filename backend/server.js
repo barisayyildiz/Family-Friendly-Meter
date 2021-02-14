@@ -18,15 +18,13 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const uri = "mongodb+srv://baris:123456abcd@cluster0.jmbto.mongodb.net/mydb?retryWrites=true&w=majority"
 
 // const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology : true }, () => {
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology : true }, () => {
 
 	console.log("MongoDB database connection established successfully");
 
 });
-
 
 
 app.listen(port, () => {
@@ -35,9 +33,6 @@ app.listen(port, () => {
 
 app.get("/:movie", (req, res) => {
 
-	// res.send({
-	// 	msg : 'here is the movie'
-	// })
 
 	const {movie} = req.params;
 
@@ -45,10 +40,6 @@ app.get("/:movie", (req, res) => {
 
 		if(data == null)
 		{
-			// res.send({
-			// 	msg : "film bulunamadi"
-			// })
-			// res.end();
 
 			const obj = await apiCall(movie);
 
@@ -83,8 +74,6 @@ app.post("/add", (req, res) => {
 
 	const {name, image, nudity, violence, profanity, drugs, intense} = req.body;
 
-	// console.log(name, image, nudity, violence, profanity, drugs, intense);
-
 	const movie = {
 		name,image,nudity,violence,profanity,drugs,intense
 	}
@@ -94,15 +83,5 @@ app.post("/add", (req, res) => {
 	newMovie.save()
 	.then(() => res.json('Movie Added'))
 	.catch(err => res.status(400).json('Error: ' + err));
-
-
-	// const {username, password} = req.body;
-
-	// const newUser = new Model({username, password});
-
-	// newUser.save()
-	// .then(() => res.json('User Added'))
-	// .catch(err => res.status(400).json('Error: ' + err));
-
 
 })
