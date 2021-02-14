@@ -9,6 +9,10 @@ import {
 
 import axios from 'axios';
 
+import '../style/movie.css';
+
+import Dropdown from './Dropdown';
+
 function Movie() {
 
 	const [loaded, setLoaded] = useState(false);
@@ -43,7 +47,7 @@ function Movie() {
 
 
 	return (
-		<div>
+		<div class={`container ${loaded ? 'loaded' : 'not-loaded'}`}>
 			{
 				loaded ? 
 				
@@ -51,70 +55,76 @@ function Movie() {
 
 					<img src={movie.image}></img>
 
-					<div>
-						<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Sex and Nudity</p>
-						<p>{movie.nudity.none} found none</p>
-						<p>{movie.nudity.mild} found mild</p>
-						<p>{movie.nudity.moderate} found moderate</p>
-						<p>{movie.nudity.severe} found severe</p>
-						{
-							movie.nudity_notes.map(i => <p>{i}</p>)
-						}
-					</div>
+					<Dropdown data={movie}></Dropdown>
 
-					<hr></hr>
+					{/* <div class="info">
 
-					<div>
-						<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Violence and Gore</p>
-						<p>{movie.violence.none} found none</p>
-						<p>{movie.violence.mild} found mild</p>
-						<p>{movie.violence.moderate} found moderate</p>
-						<p>{movie.violence.severe} found severe</p>
-						{
-							movie.violence_notes.map(i => <p>{i}</p>)
-						}
-					</div>
+						<div>
+							<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Sex and Nudity</p>
+							<p>{movie.nudity.none} found none</p>
+							<p>{movie.nudity.mild} found mild</p>
+							<p>{movie.nudity.moderate} found moderate</p>
+							<p>{movie.nudity.severe} found severe</p>
+							{
+								movie.nudity_notes.map(i => <p>{i}</p>)
+							}
+						</div>
 
-					<hr></hr>
+						<hr></hr>
 
-					<div>
-						<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Profanity</p>
-						<p>{movie.profanity.none} found none</p>
-						<p>{movie.profanity.mild} found mild</p>
-						<p>{movie.profanity.moderate} found moderate</p>
-						<p>{movie.profanity.severe} found severe</p>
-						{
-							movie.profanity_notes.map(i => <p>{i}</p>)
-						}
-					</div>
+						<div>
+							<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Violence and Gore</p>
+							<p>{movie.violence.none} found none</p>
+							<p>{movie.violence.mild} found mild</p>
+							<p>{movie.violence.moderate} found moderate</p>
+							<p>{movie.violence.severe} found severe</p>
+							{
+								movie.violence_notes.map(i => <p>{i}</p>)
+							}
+						</div>
 
-					<hr></hr>
+						<hr></hr>
 
-					<div>
-						<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Alcohol, Drugs and Smoking</p>
-						<p>{movie.drugs.none} found none</p>
-						<p>{movie.drugs.mild} found mild</p>
-						<p>{movie.drugs.moderate} found moderate</p>
-						<p>{movie.drugs.severe} found severe</p>
-						{
-							movie.drugs_notes.map(i => <p>{i}</p>)
-						}
-					</div>
+						<div>
+							<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Profanity</p>
+							<p>{movie.profanity.none} found none</p>
+							<p>{movie.profanity.mild} found mild</p>
+							<p>{movie.profanity.moderate} found moderate</p>
+							<p>{movie.profanity.severe} found severe</p>
+							{
+								movie.profanity_notes.map(i => <p>{i}</p>)
+							}
+						</div>
 
-					<hr></hr>
+						<hr></hr>
 
-					<div>
-						<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Frightening and Intense Scenes</p>
-						<p>{movie.intense.none} found none</p>
-						<p>{movie.intense.mild} found mild</p>
-						<p>{movie.intense.moderate} found moderate</p>
-						<p>{movie.intense.severe} found severe</p>
-						{
-							movie.intense_notes.map(i => <p>{i}</p>)
-						}
-					</div>
+						<div>
+							<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Alcohol, Drugs and Smoking</p>
+							<p>{movie.drugs.none} found none</p>
+							<p>{movie.drugs.mild} found mild</p>
+							<p>{movie.drugs.moderate} found moderate</p>
+							<p>{movie.drugs.severe} found severe</p>
+							{
+								movie.drugs_notes.map(i => <p>{i}</p>)
+							}
+						</div>
 
-					<hr></hr>
+						<hr></hr>
+
+						<div>
+							<p style={{fontStyle : 'bold', fontSize : '1.5rem'}}>Frightening and Intense Scenes</p>
+							<p>{movie.intense.none} found none</p>
+							<p>{movie.intense.mild} found mild</p>
+							<p>{movie.intense.moderate} found moderate</p>
+							<p>{movie.intense.severe} found severe</p>
+							{
+								movie.intense_notes.map(i => <p>{i}</p>)
+							}
+						</div>
+
+						<hr></hr>
+
+					</div> */}
 
 
 
