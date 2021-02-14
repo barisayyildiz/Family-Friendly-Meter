@@ -28,7 +28,7 @@ function Movie() {
 		console.log("arr : ", arr)
 
 
-		axios.get(`http://localhost:5000/${id}`)
+		axios.get(`https://floating-thicket-22821.herokuapp.com/${id}`)
 		.then(res => {
 
 			const {data} = res;
