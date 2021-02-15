@@ -18,6 +18,7 @@ function Movie() {
 	const [loaded, setLoaded] = useState(false);
 	const [movie, setMovie] = useState({});
 	const [error, setError] = useState(false);
+	const [options, setOptions] = useState([]);
 
 	let { id } = useParams();
 
@@ -26,8 +27,10 @@ function Movie() {
 		let arr = id.split("+");
 		arr = arr.map(s => s.charAt(0).toUpperCase() + s.slice(1))
 
-		
-		axios.get(`https://floating-thicket-22821.herokuapp.com/${id}`)
+		// https://floating-thicket-22821.herokuapp.com/
+
+
+		axios.get(`http://localhost:5000/movies/${id}`)
 		.then(res => {
 
 			const {data} = res;
