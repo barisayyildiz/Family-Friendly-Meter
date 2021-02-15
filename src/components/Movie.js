@@ -28,7 +28,7 @@ function Movie() {
 		arr = arr.map(s => s.charAt(0).toUpperCase() + s.slice(1))
 
 
-		axios.get(`https://floating-thicket-22821.herokuapp.com/${id}`)
+		axios.get(`https://floating-thicket-22821.herokuapp.com/movies/${id}`)
 		.then(res => {
 
 			const {data} = res;
