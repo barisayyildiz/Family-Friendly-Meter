@@ -57,3 +57,28 @@ ul li
 	font-size: 2rem;
 }
 
+
+@media (max-width: 700px)
+{
+	.container.loaded
+	{
+		border : 1px solid rgb(182, 182, 182);
+		width : 90%;
+		margin : 5vh auto;
+		display : flex;
+		flex-direction: column;
+	}
+
+	.container.loaded img
+	{
+		height : 100%;
+		width : 100%;
+	}
+
+	.container.loaded .accordion
+	{
+		width: 100%;
+	}
+
+
+}
