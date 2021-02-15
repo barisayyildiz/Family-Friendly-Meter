@@ -40,7 +40,7 @@ function UserInput() {
 
 	const getResults = (value) => {
 
-		axios.get(`http://localhost:5000/search?name=${value}`)
+		axios.get(`https://floating-thicket-22821.herokuapp.com/search?name=${value}`)
 		.then(res => {
 
 			let {data} = res;
@@ -57,7 +57,7 @@ function UserInput() {
 			{
 				value.push({
 					label : (
-						<a href={ "http://localhost:3000/Family-Friendly-Meter/#/" + data[i].split(" ").join("+") }
+						<a href={ "https://barisayyildiz.github.io/Family-Friendly-Meter/#/" + data[i].split(" ").join("+") }
 						style={{display : "block",
 						width : "100%"}}
 						>
