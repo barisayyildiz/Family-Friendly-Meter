@@ -20,30 +20,11 @@ function UserInput() {
 	const [movie, setMovie] = useState({});
 
 
-	// const clickHandler = () => {
-
-	// 	let arr = (movie).split(" ");
-
-	// 	arr = arr.map(s => s.charAt(0).toUpperCase() + s.slice(1));
-
-	// 	let query = arr.join("+");
-
-
-	// 	// let query = (movie).split(" ").join("+")
-
-	// 	console.log(query);
-
-	// 	// window.location = `/?name=${username}`;
-
-	// 	window.location = `/${query}`;
-
-	// }
-
 	const onSearch = (value) => {
 
 		let arr = (value).split(" ");
 
-		arr = arr.map(s => s.charAt(0).toUpperCase() + s.slice(1));
+		arr = arr.map(s => s[0].toUpperCase() + s.slice(1).toLowerCase());
 
 		let query = arr.join("+");
 
@@ -60,9 +41,6 @@ function UserInput() {
 		<div className="inputWrapper">
 
 			<h1>Family-Friendly-Meter</h1>
-
-			{/* <input placeholder="Search for a movie" onChange={(e) => setMovie(e.target.value)} style={{fontSize : '2rem'}}></input>
-			<button onClick={clickHandler} style={{fontSize : '2rem'}}>Search</button> */}
 
 			<Search
 				placeholder="Search for a movie"
