@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Family-Friendly-Meter/static/css/main.f9d75937.chunk.css",
+    "main.js": "/Family-Friendly-Meter/static/js/main.9869f55c.chunk.js",
+    "main.js.map": "/Family-Friendly-Meter/static/js/main.9869f55c.chunk.js.map",
+    "runtime-main.js": "/Family-Friendly-Meter/static/js/runtime-main.dd581b1c.js",
+    "runtime-main.js.map": "/Family-Friendly-Meter/static/js/runtime-main.dd581b1c.js.map",
+    "static/css/2.1e58ee36.chunk.css": "/Family-Friendly-Meter/static/css/2.1e58ee36.chunk.css",
+    "static/js/2.241ab3d3.chunk.js": "/Family-Friendly-Meter/static/js/2.241ab3d3.chunk.js",
+    "static/js/2.241ab3d3.chunk.js.map": "/Family-Friendly-Meter/static/js/2.241ab3d3.chunk.js.map",
+    "static/js/3.6f609892.chunk.js": "/Family-Friendly-Meter/static/js/3.6f609892.chunk.js",
+    "static/js/3.6f609892.chunk.js.map": "/Family-Friendly-Meter/static/js/3.6f609892.chunk.js.map",
+    "index.html": "/Family-Friendly-Meter/index.html",
+    "static/css/2.1e58ee36.chunk.css.map": "/Family-Friendly-Meter/static/css/2.1e58ee36.chunk.css.map",
+    "static/css/main.f9d75937.chunk.css.map": "/Family-Friendly-Meter/static/css/main.f9d75937.chunk.css.map",
+    "static/js/2.241ab3d3.chunk.js.LICENSE.txt": "/Family-Friendly-Meter/static/js/2.241ab3d3.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/Family-Friendly-Meter/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dd581b1c.js",
+    "static/css/2.1e58ee36.chunk.css",
+    "static/js/2.241ab3d3.chunk.js",
+    "static/css/main.f9d75937.chunk.css",
+    "static/js/main.9869f55c.chunk.js"
+  ]
+}
