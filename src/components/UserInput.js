@@ -45,7 +45,9 @@ function UserInput() {
 
 		let query = arr.join("+");
 
-		window.location = `/${query}`;
+		// window.location = `/${query}`;
+
+		window.location = `/Family-Friendly-Meter/#/${query}`;
 
 	}
 
