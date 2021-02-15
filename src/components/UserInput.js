@@ -9,6 +9,8 @@ import { Input } from 'antd';
 
 import 'antd/dist/antd.css';
 
+import '../style/input.css';
+
 const { Search } = Input;
 
 
@@ -55,11 +57,7 @@ function UserInput() {
 
 	return (
 	
-		<div style={{marginTop : '5vh',
-		width : '50%',
-		margin : '10vh auto',
-		fontSize : '1.3rem',
-		fontFamily: 'Work Sans'}}>
+		<div className="inputWrapper">
 
 			<h1>Family-Friendly-Meter</h1>
 
